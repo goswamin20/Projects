@@ -1,0 +1,15 @@
+1. create schema diabeticnutritionist in MYSQL server
+2. create table diabeticnutritionist.nutrition (
+    id int NOT NULL AUTO_INCREMENT,
+    age int,
+    gender varchar(10),
+    bloodgroup varchar(10),
+    sugarlevel varchar(255),
+    food varchar(255),
+    sub varchar(255),
+    PRIMARY KEY (id)
+);
+3. change connection string in DiabeticNutrition.py in line 201, change username, password, host and port.
+	cnx = MySQLdb.connect(user="root", passwd="root", host="127.0.0.1", port=3306)
+
+4. Run the program DiabeticNutrition.py and input data as asked. Refer sample output for refernce. 

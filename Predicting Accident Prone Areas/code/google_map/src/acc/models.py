@@ -1,0 +1,40 @@
+from django.db import models
+
+# Create your models here.
+class PointOfInterest(models.Model):
+	Accident_Index = models.CharField(max_length=100,blank=True,null=True)
+	Location_Easting_OSGR = models.CharField(max_length=100,blank=True,null=True)
+	Location_Northing_OSGR = models.CharField(max_length=100,blank=True,null=True)
+	Longitude = models.CharField(max_length=100,blank=True,null=True)
+	Latitude = models.CharField(max_length=100,blank=True,null=True)
+	Police_Force = models.CharField(max_length=100,blank=True,null=True)
+	Accident_Severity = models.CharField(max_length=100,blank=True,null=True)
+	Number_of_Vehicles = models.CharField(max_length=100,blank=True,null=True)
+	Number_of_Casualties = models.CharField(max_length=100,blank=True,null=True)
+	Date = models.CharField(max_length=100,blank=True,null=True)
+	Day_of_Week = models.CharField(max_length=100,blank=True,null=True)
+	Time = models.CharField(max_length=100,blank=True,null=True)
+	Local_Authority_District = models.CharField(max_length=100,blank=True,null=True)
+	Local_Authority_Highway = models.CharField(max_length=100,blank=True,null=True)
+	first_Road_Class = models.CharField(max_length=100,blank=True,null=True)
+	first_Road_Number = models.CharField(max_length=100,blank=True,null=True)
+	Road_Type = models.CharField(max_length=100,blank=True,null=True)
+	Speed_limit = models.CharField(max_length=100,blank=True,null=True)
+	Junction_Detail = models.CharField(max_length=100,blank=True,null=True)
+	Junction_Control = models.CharField(max_length=100,blank=True,null=True)
+	second_Road_Class = models.CharField(max_length=100,blank=True,null=True)
+	second_Road_Number = models.CharField(max_length=100,blank=True,null=True)
+	Pedestrian_Crossing_Human_Control = models.CharField(max_length=100,blank=True,null=True)
+	Pedestrian_Crossing_Physical_Facilities = models.CharField(max_length=100,blank=True,null=True)
+	Light_Conditions = models.CharField(max_length=100,blank=True,null=True)
+	Weather_Conditions = models.CharField(max_length=100,blank=True,null=True)
+	Road_Surface_Conditions = models.CharField(max_length=100,blank=True,null=True)
+	Special_Conditions_at_Site = models.CharField(max_length=100,blank=True,null=True)
+	Carriageway_Hazards = models.CharField(max_length=100,blank=True,null=True)
+	Urban_or_Rural_Area = models.CharField(max_length=100,blank=True,null=True)
+	Did_Police_Officer_Attend_Scene_of_Accident = models.CharField(max_length=100,blank=True,null=True)
+	LSOA_of_Accident_Location = models.CharField(max_length=100,blank=True,null=True)
+
+
+	def __str__(self):
+		return '%s,%s,%s,%s,' % (self.Accident_Severity,self.Latitude,self.Longitude,self.Number_of_Vehicles)

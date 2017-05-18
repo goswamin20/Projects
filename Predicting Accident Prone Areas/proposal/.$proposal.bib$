@@ -1,0 +1,20 @@
+% Encoding: UTF-8
+@Misc{www-seriousaccidents,
+  title        = {Top 25 Causes of Car Accidents},
+  howpublished = {Webpage},
+  owner        = {Nandini Goswami(F16-IG-3007), Kavya Guruprasad(F16-IG-3008),Sarita Bhateja(F16-IG-3003)},
+  url          = {https://seriousaccidents.com/legal-advice/top-causes-of-car-accidents/},
+}
+@Misc{www-asirt,
+  title        = {Annual Global Road Crash Statistics},
+  howpublished = {Webpage},
+  owner        = {Nandini Goswami(F16-IG-3007), Kavya Guruprasad(F16-IG-3008),Sarita Bhateja(F16-IG-3003)},
+  url          = {https://asirt.org/initiatives/informing-road-users/road-safety-facts/road-crash-statistics},
+}
+@IEEEtranBSTCTL{ss,
+  ctluse_url = {xyz},
+  owner      = {sa},
+  url        = {xyz.com},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

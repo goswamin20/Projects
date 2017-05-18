@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload Data</title>
+</head>
+<body >
+  <section id="main-content">
+	   <section class="wrapper">  
+			<div class='col-sm-6 col-sm-offset-3' style = 'font-family:Lato; color: #797979 ;'></br></br></br></br></br>
+				<h1 class= 'h1'> Enter Excel Sheet </h1>
+				<form method='POST' id="myForm" action='' enctype='multipart/form-data' onsubmit= "myfunc()">
+				{% csrf_token %} 
+				{{ form.as_p }}
+				<input type='submit' class="btn btn-primary" value='Submit' id="postBtn"  />
+				{% for message in messages %}
+					{{ message }}
+				{% endfor %}
+				</form>
+			</div>
+		</section>
+	</section>
+</body>
+</html>

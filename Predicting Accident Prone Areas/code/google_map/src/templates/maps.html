@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+ <meta charset="utf-8">
+        <title>A of Interest</title>
+        <style>
+            #map-canvas {
+                height: 600px;
+            }
+        </style>
+
+    <body>
+        <h1>Points of Interest</h1>
+        <select id="crime_type" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <br/>
+        <br/>
+        <br/>
+        <div id="map-canvas"  class="col-md-10"></div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD2aNzRT3PHbyFbPT74sVT46fLpjCShlUY"></script>
+        <script>
+            function initialize() 
+                var crime_type = $("#crime_type").val();
+                var icon;
+                var map = new google.maps.Map(document.getElementById('map-canvas'));
+                var bounds = new google.maps.LatLngBounds();
+
+                function addMarker(lat, lng, title, icon) {
+                    var position = new google.maps.LatLng(lat, lng);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: title
+                    });
+                    var marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        title: title,
+                        icon: icon
+                    });
+                    marker.addListener('click', function() {
+                      infowindow.open(map, marker);
+                    });
+                    bounds.extend(position);
+                }
+                {% for poi in pois %}
+
+                    if("{{poi.Accident_Severity}}"==crime_type){
+                        
+                        if("{{poi.Accident_Severity}}"=="1")
+                        {
+                            icon = {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                strokeColor:'black',
+                                scale: 5
+                            };
+                        }
+                        else if("{{poi.Accident_Severity}}"=="2")
+                        {
+                            icon = {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                strokeColor:'purple',
+                                scale: 5
+                            };
+                        }
+                        else if("{{poi.Accident_Severity}}"=="3")
+                        {
+                            icon = {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                strokeColor:'blue',
+                                scale: 5
+                            };
+                        }
+                        
+                        addMarker({{ poi.Latitude }}, {{ poi.Longitude }}, "{{ poi.Date }} {{ poi.Day_of_Week }} {{ poi.Time }}", icon);
+                    }
+
+
+                {% endfor %}   map.fitBounds(bounds);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+
+            google.maps.event.addDomListener(document.getElementById("crime_type"), "change", function() {
+                var crime_type = $("#crime_type").val();
+                var icon;
+                var map = new google.maps.Map(document.getElementById('map-canvas'));
+                var bounds = new google.maps.LatLngBounds();
+
+                function addMarker(lat, lng, title, icon) {
+                    var position = new google.maps.LatLng(lat, lng);
+                    var infowindow = new google.maps.InfoWindow({
+                        content: title
+                    });
+                    var marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        title: title,
+                        icon: icon
+                    });
+                    marker.addListener('click', function() {
+                      infowindow.open(map, marker);
+                    });
+                    bounds.extend(position);
+                }
+                {% for poi in pois %}
+
+                  if("{{poi.Accident_Severity}}"==crime_type){
+                        
+                        if("{{poi.Accident_Severity}}"=="1")
+                        {
+                            icon = {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                strokeColor:'black',
+                                scale: 5
+                            };
+                        }
+                        else if("{{poi.Accident_Severity}}"=="2")
+                        {
+                            icon = {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                strokeColor:'purple',
+                                scale: 5
+                            };
+                        }
+                        else if("{{poi.Accident_Severity}}"=="3")
+                        {
+                            icon = {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                strokeColor:'blue',
+                                scale: 5
+                            };
+                        }
+                        
+                        addMarker({{ poi.Latitude }}, {{ poi.Longitude }}, "{{ poi.Date }} {{ poi.Day_of_Week }} {{ poi.Time }}", icon);
+                    }
+
+
+
+                {% endfor %}   map.fitBounds(bounds);
+                map.fitBounds(bounds);
+            });
+        </script>
+    </body>
+
+</html>
